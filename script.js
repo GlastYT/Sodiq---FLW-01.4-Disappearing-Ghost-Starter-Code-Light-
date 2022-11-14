@@ -2,7 +2,7 @@
 let p = document.createElement("p");
 let h1 = document.querySelector(".header");
 let input = document.querySelector(".input");
-let userInput;
+let userInput = input.value;
 
 //declare variable for ghost image
 let ghost = document.querySelector(".ghost-image");
@@ -13,6 +13,7 @@ let show = document.querySelector(".show-button");
 let update = document.querySelector(".update-img-button");
 let message = document.querySelector(".message-button");
 let name = document.querySelector(".name-button");
+let messageOutput = document.querySelector(".message");
 
 
 //create an onclick event for the Hide Me button
@@ -33,13 +34,20 @@ update.onclick = function() {
   ghost.src = "https://emojipedia-us.s3.amazonaws.com/source/noto-emoji-animations/344/ghost_1f47b.gif";
 }
 
-
 //create an onclick event for the Send Message button
 //update the userInput variable by saving the value of the input
 //use the insertAdjacentHTML method to append the userInput in a <p> tag
-
-
+message.onclick = function() {
+  console.log("You've clicked on the message button")
+  let userInput = `<p>${input.value}</p>`;
+  messageOutput.insertAdjacentHTML('beforeend', userInput);
+}
 
 //create an onclick event for the Name Me button
 //update the userInput variable by saving the value of the input
 //use the innerHTML method to update the h1 tag
+name.onclick = function() {
+  console.log("You've clicked on the name button")
+  let userInput = `<p>${input.value}</p>`;
+  h1.innerHTML = userInput;
+}
